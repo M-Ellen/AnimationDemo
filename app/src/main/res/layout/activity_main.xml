@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="com.example.viewanimation.MainActivity">
+    tools:context="com.example.animation.MainActivity">
 
     <TextView
         android:id="@+id/tv_alpha"
