@@ -19,6 +19,7 @@
         <activity android:name="com.example.animation.ScaleTestActivity"/>
         <activity android:name="com.example.animation.TranslateTestActivity"/>
         <activity android:name="com.example.animation.RotateTestActivity"/>
+        <activity android:name="com.example.animation.SetTestActivity"/>
     </application>
 
 </manifest>

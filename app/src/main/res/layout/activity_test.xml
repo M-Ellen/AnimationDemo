@@ -7,13 +7,22 @@
     tools:context="com.example.animation.AlphaTestActivity">
 
 
-    <ImageView
+<!--    <ImageView
 
         android:id="@+id/iv_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:layout_centerInParent="true"
+        android:src="@mipmap/test"/> -->
+
+    <ImageView
+        android:id="@+id/iv_test"
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="100px"
+        android:layout_marginTop="100px"
         android:src="@mipmap/test"/>
 
 
@@ -22,18 +31,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/iv_test"
         android:layout_marginBottom="19dp"
-        android:layout_marginStart="58dp"
+        android:layout_marginLeft="58dp"
         android:text="Xml"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignParentRight="true"
         android:layout_alignBottom="@+id/button1"
-        android:layout_alignEnd="@+id/iv_test"
         android:layout_marginEnd="58dp"
         android:text="Java"/>
 

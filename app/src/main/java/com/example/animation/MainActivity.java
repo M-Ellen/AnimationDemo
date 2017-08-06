@@ -12,7 +12,7 @@ import android.widget.TextView;
  */
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    private TextView mTvAlpha, mTvScale, mTvTranslate, mTvRotate;
+    private TextView mTvAlpha, mTvScale, mTvTranslate, mTvRotate, mTvSet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +22,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mTvScale = (TextView)findViewById(R.id.tv_scale);
         mTvTranslate = (TextView)findViewById(R.id.tv_translate);
         mTvRotate = (TextView)findViewById(R.id.tv_rotate);
+        mTvSet = (TextView)findViewById(R.id.tv_set);
         
         mTvAlpha.setOnClickListener(this);
         mTvScale.setOnClickListener(this);
         mTvTranslate.setOnClickListener(this);
         mTvRotate.setOnClickListener(this);
+        mTvSet.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +49,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case  R.id.tv_rotate:
                 enterTestActivity(RotateTestActivity.class);
+                break;
+            case  R.id.tv_set:
+                enterTestActivity(SetTestActivity.class);
                 break;
 
             default:
