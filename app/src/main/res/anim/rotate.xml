@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rotate xmlns:android="http://schemas.android.com/apk/res/android"
 
-
-    android:duration="400">
+    android:drawable="@color/colorAccent"
+    android:duration="400"
+    android:fromDegrees="0"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="90"
+    android:visible="true">
 
 </rotate>
