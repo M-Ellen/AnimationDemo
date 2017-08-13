@@ -65,5 +65,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
      */
     private void enterTestActivity(Class clazz) {
         startActivity(new Intent(this, clazz));
+//        overridePendingTransition();
     }
 }
