@@ -16,7 +16,7 @@ public class RotateTestActivity extends BaseActivity {
      */
     @Override
     protected void starXmlAnimation() {
-
+        mImage.clearAnimation();
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.rotate);
         mImage.startAnimation(animation);
     }
@@ -26,6 +26,7 @@ public class RotateTestActivity extends BaseActivity {
      */
     @Override
     protected void starCodeAnimation() {
+        mImage.clearAnimation();
         RotateAnimation rotateAnimation = new RotateAnimation(0,180);
         rotateAnimation.setDuration(3000);
         mImage.startAnimation(rotateAnimation);

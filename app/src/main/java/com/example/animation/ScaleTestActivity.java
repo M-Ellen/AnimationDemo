@@ -22,6 +22,7 @@ public class ScaleTestActivity extends BaseActivity {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void starXmlAnimation() {
+        mImage.clearAnimation();
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.scale);
         mImage.startAnimation(animation);
 
@@ -32,6 +33,7 @@ public class ScaleTestActivity extends BaseActivity {
      */
     @Override
     protected void starCodeAnimation() {
+        mImage.clearAnimation();
         ScaleAnimation scaleAnimation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 //        ScaleAnimation scaleAnimation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_PARENT, 0.5f, Animation.RELATIVE_TO_PARENT, 0.5f);
         scaleAnimation.setDuration(3000);

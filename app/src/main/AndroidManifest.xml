@@ -8,18 +8,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
-        <activity android:name="com.example.animation.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.example.animation.AlphaTestActivity"/>
-        <activity android:name="com.example.animation.ScaleTestActivity"/>
-        <activity android:name="com.example.animation.TranslateTestActivity"/>
-        <activity android:name="com.example.animation.RotateTestActivity"/>
-        <activity android:name="com.example.animation.SetTestActivity"/>
+        <activity android:name=".AlphaTestActivity"/>
+        <activity android:name=".ScaleTestActivity"/>
+        <activity android:name=".TranslateTestActivity"/>
+        <activity android:name=".RotateTestActivity"/>
+        <activity android:name=".SetTestActivity"/>
+        <activity android:name=".InterpolatorTestActivity">
+        </activity>
     </application>
 
 </manifest>

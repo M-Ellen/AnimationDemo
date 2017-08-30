@@ -16,7 +16,7 @@ public class AlphaTestActivity extends BaseActivity {
      */
     @Override
     protected void starXmlAnimation() {
-
+        mImage.clearAnimation();
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha);
         mImage.startAnimation(animation);
     }
@@ -26,6 +26,7 @@ public class AlphaTestActivity extends BaseActivity {
      */
     @Override
     protected void starCodeAnimation() {
+        mImage.clearAnimation();
         AlphaAnimation alphaAnimation = new AlphaAnimation(0f, 1f);
         alphaAnimation.setDuration(3000);
         mImage.startAnimation(alphaAnimation);
