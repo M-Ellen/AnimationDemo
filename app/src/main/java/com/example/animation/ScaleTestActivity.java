@@ -1,18 +1,11 @@
 package com.example.animation;
 
 
-import android.animation.StateListAnimator;
 import android.annotation.TargetApi;
-import android.media.Image;
 import android.os.Build;
-import android.util.Log;
-import android.view.ViewParent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
-
-import static android.R.attr.animation;
-import static android.content.ContentValues.TAG;
 
 public class ScaleTestActivity extends BaseActivity {
 

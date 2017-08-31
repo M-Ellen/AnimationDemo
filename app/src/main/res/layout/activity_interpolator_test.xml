@@ -5,33 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:paddingTop="10dp"
     tools:context="com.example.animation.InterpolatorTestActivity">
 
     <TextView
-        android:id="@+id/tv_linear"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Alpha Animation"
-        android:background="@android:color/holo_blue_bright"
-        android:textSize="28sp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_marginBottom="5dip"
+        android:text="Select an animation:" />
 
-    <TextView
-        android:id="@+id/tv_scale"
-        android:gravity="center"
+    <Spinner
+        android:id="@+id/spinner"
+        android:spinnerMode="dropdown"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:text="Scale Animation"
-        android:background="@android:color/holo_green_light"
-        android:textSize="28sp"/>
-
+        android:layout_height="wrap_content" />
 
     <ImageView
-        android:id="@+id/iv_test_Inter"
-        android:src="@mipmap/ic_stars"
-        android:layout_width="80dp"
-        android:layout_height="80dp"/>
+        android:id="@+id/target"
+        android:src="@mipmap/ball"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
 
 </LinearLayout>

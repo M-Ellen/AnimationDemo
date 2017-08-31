@@ -1,12 +1,9 @@
 package com.example.animation;
 
 
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
-
-import static android.content.ContentValues.TAG;
 
 public class TranslateTestActivity extends BaseActivity {
 
