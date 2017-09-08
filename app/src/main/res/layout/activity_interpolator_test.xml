@@ -1,30 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingTop="10dp"
     tools:context="com.example.animation.InterpolatorTestActivity">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
         android:layout_marginBottom="5dip"
-        android:text="Select an animation:" />
+        android:layout_marginTop="20dip"
+        android:text="Select an animation:"/>
 
     <Spinner
         android:id="@+id/spinner"
-        android:spinnerMode="dropdown"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:spinnerMode="dropdown"/>
 
     <ImageView
         android:id="@+id/target"
-        android:src="@mipmap/ball"
         android:layout_width="60dp"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp"
+        android:layout_marginLeft="10px"
+        android:layout_marginTop="200px"
+        android:src="@mipmap/ball"/>
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/testInterpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/distance_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="100dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/total_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="100dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/distance_y_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="150dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/interpolator_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="200dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="230dp"
+            android:background="#66660000"/>
+
+
+        <TextView
+            android:id="@+id/distance_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="250dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/total_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="250dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/distance_time_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="300dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/interpolator_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="350dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="400dp"
+            android:singleLine="true"
+            android:text="加速插值器公式：y = t * t"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="520dp"
+            android:text="Pause"
+            android:textSize="25sp"/>
+    </RelativeLayout>
+
+</RelativeLayout>
