@@ -22,6 +22,8 @@
         <activity android:name=".SetTestActivity"/>
         <activity android:name=".InterpolatorTestActivity">
         </activity>
+        <activity android:name=".PropertyTestActivity">
+        </activity>
     </application>
 
 </manifest>

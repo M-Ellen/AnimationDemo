@@ -14,6 +14,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private TextView mTvAlpha, mTvScale, mTvTranslate, mTvRotate, mTvSet;
     private TextView mTvInterpolator;
+    private TextView mTvProperty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mTvTranslate = (TextView)findViewById(R.id.tv_translate);
         mTvRotate = (TextView)findViewById(R.id.tv_rotate);
         mTvSet = (TextView)findViewById(R.id.tv_set);
-
         mTvInterpolator = (TextView)findViewById(R.id.tv_interpolator);
+        mTvProperty = (TextView) findViewById(R.id.tv_property);
         
         mTvAlpha.setOnClickListener(this);
         mTvScale.setOnClickListener(this);
@@ -33,6 +34,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mTvRotate.setOnClickListener(this);
         mTvSet.setOnClickListener(this);
         mTvInterpolator.setOnClickListener(this);
+        mTvProperty.setOnClickListener(this);
     }
 
     @Override
@@ -59,6 +61,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case  R.id.tv_interpolator:
                 enterTestActivity(InterpolatorTestActivity.class);
+                break;
+            case  R.id.tv_property:
+                enterTestActivity(PropertyTestActivity.class);
                 break;
 
             default:

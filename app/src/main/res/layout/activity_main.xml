@@ -68,4 +68,14 @@
         android:background="@android:color/holo_green_dark"
         android:textSize="28sp"/>
 
+    <TextView
+        android:id="@+id/tv_property"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:text="PropertyAnimation"
+        android:background="@android:color/holo_orange_dark"
+        android:textSize="28sp"/>
+
 </LinearLayout>
