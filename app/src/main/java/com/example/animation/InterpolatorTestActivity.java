@@ -4,13 +4,17 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.PathInterpolator;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +30,7 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
             "Test MyAccelerate/Decelerate",
             "Accelerate", "Decelerate", "Accelerate/Decelerate",
             "Anticipate", "Overshoot", "Anticipate/Overshoot",
-            "Linear","Bounce","CycleInterpolator", "PathInterpolator","FastInterpolator"};
+            "Linear","Bounce","CycleInterpolator", "HesitateInterpolator"};
 
     private MyAccelerateInterpolator mInterpolator = new MyAccelerateInterpolator();
 
@@ -34,6 +38,8 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
 
     private ObjectAnimator a = null;
     private int mTotalTime = 2000;
+
+    private Animation animation = null;
 
     private RelativeLayout mTestInterpolator = null;
     private View target = null;
@@ -49,6 +55,7 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
     private TextView distance_time_percent = null;
     private TextView interpolator_t = null;
     private Button pause = null;
+    private Button start_btn = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +103,14 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
             }
         });
 
+        start_btn = (Button)findViewById(R.id.start_ani_btn);
+        start_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                target.startAnimation(animation);
+            }
+        });
+
         Spinner s = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, INTERPOLATORS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -104,19 +119,24 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
 
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
 
         final float startY = target.getY();
-        final float engY = targetParent.getHeight() - target.getY() - target.getHeight() - targetParent.getPaddingBottom();
 
-        Animation animation = new TranslateAnimation(0.0f, 0.0f, 0.0f,targetParent.getHeight() - target.getY() - target.getHeight() - targetParent.getPaddingBottom());
+        final float engY = targetParent.getHeight() - target.getY() - target.getHeight() - targetParent.getPaddingBottom();
+        final float engX = targetParent.getWidth() - target.getX() - target.getWidth() - targetParent.getPaddingLeft();
+
+//        animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, engY);
+//        animation = new TranslateAnimation(0, engX, 0, 0);
+        animation  = new ScaleAnimation(1, 3, 1, 3, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
 //        animation.setStartOffset(100);
         animation.setDuration(3000);
         animation.setRepeatMode(Animation.RESTART);
-        animation.setRepeatCount(-1);
-//        target.clearAnimation();
+//        animation.setRepeatCount(-1);
 
         if(position == 0)
         {
@@ -124,7 +144,6 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
         }else {
             mTestInterpolator.setVisibility(View.GONE);
             target.clearAnimation();
-            a.end();
         }
 
         switch (position) {
@@ -164,14 +183,17 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
                         distance_time_percent.setText("时间百分比："+1.0);
                         pause.setText("Start");
                         //恢复原来状态
-                        target.setX(10);
-                        target.setY(200);
+//                        target.setX(10);
+//                        target.setY(200);
+                        ObjectAnimator.ofFloat(target, "translationY", engY, 0).setDuration(0).start();
                     }
                 });
                 return;
 
             case 1:
-                animation.setInterpolator(AnimationUtils.loadInterpolator(this,android.R.anim.accelerate_interpolator));
+//                animation.setInterpolator(AnimationUtils.loadInterpolator(this,R.anim.my_accelerate_interpolator));
+//                animation.setInterpolator(new AccelerateInterpolator(2));
+                animation.setInterpolator(new AccelerateInterpolator());
                 break;
             case 2:
                 animation.setInterpolator(AnimationUtils.loadInterpolator(this,android.R.anim.decelerate_interpolator));
@@ -198,14 +220,10 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
                 animation.setInterpolator(AnimationUtils.loadInterpolator(this,android.R.anim.cycle_interpolator));
                 break;
             case 10:
-                animation.setInterpolator(new PathInterpolator(10, 30));
-                break;
-            case 11:
-                animation.setInterpolator(new FastOutLinearInInterpolator());
+                animation.setInterpolator(new HesitateInterpolator());
                 break;
              }
 
-        target.startAnimation(animation);
     }
 
     @Override

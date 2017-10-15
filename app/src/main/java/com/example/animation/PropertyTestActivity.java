@@ -4,11 +4,15 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
+import android.animation.FloatArrayEvaluator;
+import android.animation.FloatEvaluator;
+import android.animation.IntEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
@@ -134,12 +138,12 @@ public class PropertyTestActivity extends Activity implements AdapterView.OnItem
 //			AnimatorSet animSetXY = new AnimatorSet();
 //			animSetXY.playTogether(animX, animY);
 //			animSetXY.start();
-			mTarget.animate().x(50f).y(100f);
+//			mTarget.animate().x(50f).y(100f);
 
 //			mTarget.animate().xBy(20).yBy(20);  //相对于当前位置，移动的偏移量
 //			mTarget.animate().x(20).y(20);      //移动到指定位置为（20,20）
 
-			mTarget.animate().yBy(200f).rotation(360).scaleY(2).setDuration(3000).start();
+			mTarget.animate().yBy(200f).rotation(360).scaleY(2).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
 			break;
 		default:
 			break;
