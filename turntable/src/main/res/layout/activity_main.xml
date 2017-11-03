@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context="com.pzm.turntable.MainActivity">
+
+
+        <ImageView
+            android:id="@+id/icon_shadow"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/turntable_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/icon_base"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/turntable_base"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/icon_mask"
+            android:src="@mipmap/turntable_mask"
+            android:scaleType="fitCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="2dp"
+            />
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:text="Start"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/btn_play"
+        android:background="@android:color/holo_blue_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
