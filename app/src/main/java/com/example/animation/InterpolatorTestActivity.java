@@ -9,6 +9,8 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -30,7 +32,8 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
             "Test MyAccelerate/Decelerate",
             "Accelerate", "Decelerate", "Accelerate/Decelerate",
             "Anticipate", "Overshoot", "Anticipate/Overshoot",
-            "Linear","Bounce","CycleInterpolator", "HesitateInterpolator"};
+            "Linear","Bounce","CycleInterpolator", "HesitateInterpolator//自定义",
+            "FastOutLinearInInterpolator", "LinearOutSlowInInterpolator", "FastOutSlowInInterpolator",};
 
     private MyAccelerateInterpolator mInterpolator = new MyAccelerateInterpolator();
 
@@ -129,9 +132,12 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
         final float engY = targetParent.getHeight() - target.getY() - target.getHeight() - targetParent.getPaddingBottom();
         final float engX = targetParent.getWidth() - target.getX() - target.getWidth() - targetParent.getPaddingLeft();
 
-//        animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, engY);
-//        animation = new TranslateAnimation(0, engX, 0, 0);
-        animation  = new ScaleAnimation(1, 3, 1, 3, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        /**
+         * 测试过程中自行选择
+         */
+        animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, engY);//Y轴移动
+//        animation = new TranslateAnimation(0, engX, 0, 0);//X轴移动
+//        animation  = new ScaleAnimation(1, 3, 1, 3, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);//缩放动画
 
 //        animation.setStartOffset(100);
         animation.setDuration(3000);
@@ -222,6 +228,19 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
             case 10:
                 animation.setInterpolator(new HesitateInterpolator());
                 break;
+            case 11:
+                animation.setInterpolator(AnimationUtils.loadInterpolator(this,android.R.interpolator.fast_out_linear_in));
+//                animation.setInterpolator(new FastOutLinearInInterpolator());//加速
+                break;
+            case 12:
+                animation.setInterpolator(AnimationUtils.loadInterpolator(this,android.R.interpolator.linear_out_slow_in));
+//                animation.setInterpolator(new LinearOutSlowInInterpolator());//减速
+                break;
+            case 13:
+                animation.setInterpolator(AnimationUtils.loadInterpolator(this,android.R.interpolator.fast_out_slow_in));
+//                animation.setInterpolator(new FastOutSlowInInterpolator());//加速然后减速
+                break;
+
              }
 
     }

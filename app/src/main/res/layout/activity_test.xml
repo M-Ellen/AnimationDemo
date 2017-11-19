@@ -13,7 +13,7 @@
         android:scaleType="fitXY"
         android:layout_marginLeft="100px"
         android:layout_marginTop="100px"
-        android:src="@mipmap/test"/>
+        android:src="@mipmap/test2"/>
 
 <!--   <ImageView
 
